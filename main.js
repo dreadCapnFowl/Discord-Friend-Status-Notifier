@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, Menu, Tray } = require('electron')
+const {app, BrowserWindow, Menu, Tray, globalShortcut  } = require('electron')
 const path = require('path')
 const openAboutWindow = require('about-window').default;
 // Keep a global reference of the window object, if you don't, the window will
@@ -50,7 +50,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
   Menu.setApplicationMenu(null);
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -58,6 +58,19 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null
+  })
+
+  mainWindow.on('minimize',function(event){
+      event.preventDefault();
+      mainWindow.hide();
+  });
+
+  globalShortcut.register('CommandOrControl+Shift+I', () => {
+    mainWindow.webContents.toggleDevTools()
+  })
+
+  globalShortcut.register('CommandOrControl+R', () => {
+    mainWindow.reload()
   })
 }
 

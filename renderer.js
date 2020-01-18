@@ -158,7 +158,15 @@ document.addEventListener("DOMContentLoaded", function(){
            icon: `https://cdn.discordapp.com/avatars/${newM.user.id}/${newM.user.avatar}.png`,
          });
          note.onclick = function(event) {
-           window.location = `discord://discordapp.com/channels/@me/${newM.user.dmChannel.id}/`;
+           if (newM.user.dmChannel)
+            window.location = `discord://discordapp.com/channels/@me/${newM.user.dmChannel.id}/`;
+          else {
+            newM.user.createDM().then(dm => {
+              window.location = `discord://discordapp.com/channels/@me/${dm.id}/`;
+            }).catch(e => {
+              console.log(e);
+            })
+          }
         }
       }
 
