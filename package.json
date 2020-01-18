@@ -1,6 +1,6 @@
 {
   "name": "StatusNotifier",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Sends a notification on friend status change.",
   "main": "main.js",
   "build": {
@@ -15,7 +15,17 @@
         }
       ],
       "extraFiles": [
-        "icon.ico"
+        "icon.ico",
+        "icon.png"
+      ]
+    },
+    "linux": {
+      "maintainer": "dreamtrap",
+      "category": "Utility",
+      "description": "Notifications for statuses of friends.",
+      "packageCategory": "Utility",
+      "target": [
+        "deb"
       ]
     }
   },

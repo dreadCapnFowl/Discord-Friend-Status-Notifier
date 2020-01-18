@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function(){
       if (token)
         store.set('token', token)
 
-      document.title = client.user.tag + ' friend notifier';
+      document.title = client.user.tag + ' Status Notifier';
 
       /* XXX */
       showClient();
