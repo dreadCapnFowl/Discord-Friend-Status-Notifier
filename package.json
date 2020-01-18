@@ -1,0 +1,38 @@
+{
+  "name": "StatusNotifier",
+  "version": "1.0.0",
+  "description": "Sends a notification on friend status change.",
+  "main": "main.js",
+  "build": {
+    "win": {
+      "appId": "DiscordTools",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "extraFiles": [
+        "icon.ico"
+      ]
+    }
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "author": "dreamtrap",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^7.1.9"
+  },
+  "dependencies": {
+    "about-window": "^1.13.2",
+    "discord.js": "^11.5.1",
+    "electron-store": "^5.1.0",
+    "node-notifier": "^6.0.0",
+    "request": "^2.88.0"
+  }
+}
